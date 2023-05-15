@@ -7,7 +7,7 @@ const Bookings = () => {
     const { user } = useContext(AuthContext);
     const navigate = useNavigate();
     const [bookings, setBookings] = useState([]);
-    const url = `http://localhost:5000/bookings?email=${user?.email}`;
+    const url = `https://car-doctor-server-one-mocha.vercel.app/bookings?email=${user?.email}`;
     useEffect(() => {
         fetch(url, {
             method: 'GET',
@@ -28,7 +28,7 @@ const Bookings = () => {
     const handleDelete = id =>{
         const proceed = confirm('Are You sure want to delete');
         if(proceed){
-            fetch(`http://localhost:5000/bookings/${id}`, {
+            fetch(`https://car-doctor-server-one-mocha.vercel.app/bookings/${id}`, {
                 method: 'DELETE'
             })
             .then(res => res.json())
@@ -45,7 +45,7 @@ const Bookings = () => {
     }
     
     const handleConfirm = id => {
-        fetch(`http://localhost:5000/bookings/${id}`, {
+        fetch(`https://car-doctor-server-one-mocha.vercel.app/bookings/${id}`, {
             method: 'PATCH',
             headers:{
                 'content-type': 'application/json'
